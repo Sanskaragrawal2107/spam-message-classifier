@@ -4,10 +4,12 @@ import string
 from nltk.corpus import stopwords
 import nltk
 nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('punkt_tab')
+
 from nltk.stem.porter import PorterStemmer
 
 ps = PorterStemmer()
-
 
 def transform_text(text):
     text = text.lower()
@@ -40,7 +42,6 @@ st.title("Email/SMS Spam Classifier")
 input_sms = st.text_area("Enter the message")
 
 if st.button('Predict'):
-
     # 1. preprocess
     transformed_sms = transform_text(input_sms)
     # 2. vectorize
